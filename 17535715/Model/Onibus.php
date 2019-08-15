@@ -1,10 +1,10 @@
 <?php
-class Carro{
+class Onibus{
 
     private $idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo;
 
     public function setIdOnibus($idOnibus){
-        $this->ididOnibusCarro=$idOnibus;
+        $this->idOnibus=$idOnibus;
     }
 
     public function getIdOnibus(){
