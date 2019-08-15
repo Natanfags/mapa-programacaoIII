@@ -1,38 +1,62 @@
 <?php
-class Onibus{
+include("Veiculo.php");
 
-    private $idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo;
+class Onibus extends Veiculo {
 
-    public function setIdOnibus($idOnibus){
-        $this->idOnibus=$idOnibus;
-    }
+	private $idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo;
 
-    public function getIdOnibus(){
-        return $this->idOnibus;
-    }
+	public function __construct($dadosOnibus, $dadosVeiculo) {
+		list($idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo) = $dadosOnibus;
+		$this->setIdOnibus($idOnibus);
+		$this->setIdVeiculo($idVeiculo);
+		$this->setQtdPassageiros($qtdPassageiros);
+		$this->setQuantidadeEixo($quantidadeEixo);
+		parent::__construct($dadosVeiculo);
+	}
 
-    public function setIdVeiculo($idVeiculo){
-        $this->idVeiculo=$idVeiculo;
-    }
+	public function setIdOnibus($idOnibus) {
+		$this->idOnibus = $idOnibus;
+	}
 
-    public function getIdVeiculo(){
-        return $this->idVeiculo;
-    }
+	public function getIdOnibus() {
+		return $this->idOnibus;
+	}
 
-    public function setQtdPassageiros($qtdPassageiros){
-        $this->qtdPassageiros=$qtdPassageiros;
-    }
+	public function setIdVeiculo($idVeiculo) {
+		$this->idVeiculo = $idVeiculo;
+	}
 
-    public function getQtdPassageiros(){
-        return $this->qtdPassageiros;
-    }
+	public function getIdVeiculo() {
+		return $this->idVeiculo;
+	}
 
-    public function setQuantidadeEixo($quantidadeEixo){
-        $this->quantidadeEixo=$quantidadeEixo;
-    }
+	public function setQtdPassageiros($qtdPassageiros) {
+		$this->qtdPassageiros = $qtdPassageiros;
+	}
 
-    public function getQuantidadeEixo(){
-        return $this->quantidadeEixo;
-    }
+	public function getQtdPassageiros() {
+		return $this->qtdPassageiros;
+	}
+
+	public function setQuantidadeEixo($quantidadeEixo) {
+		$this->quantidadeEixo = $quantidadeEixo;
+	}
+
+	public function getQuantidadeEixo() {
+		return $this->quantidadeEixo;
+	}
+
+	function inserir($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
+		// TODO: Implement inserir() method.
+	}
+
+	function listarUm($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
+		// TODO: Implement listarUm() method.
+	}
+
+	function listarTodos($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
+		// TODO: Implement listarTodos() method.
+	}
 }
+
 ?>
