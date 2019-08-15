@@ -1,5 +1,5 @@
 <?php
-include("Caminhao.php");
+include("Veiculo.php");
 
 class Caminhao extends Veiculo {
 
