@@ -9,9 +9,7 @@ class Caminhao extends Veiculo {
 	private $quantidadeEixo;
 
 	public function __construct($dadosCaminhao, $dadosVeiculo) {
-		list($idCaminhao, $idVeiculo, $pesoMaximo, $quantidadeEixo) = $dadosCaminhao;
-		$this->setIdCaminhao($idCaminhao);
-		$this->setIdVeiculo($idVeiculo);
+		list($pesoMaximo, $quantidadeEixo) = $dadosCaminhao;
 		$this->setPesoMaximo($pesoMaximo);
 		$this->setQuantidadeEixo($quantidadeEixo);
 		parent::__construct($dadosVeiculo);
@@ -50,15 +48,30 @@ class Caminhao extends Veiculo {
 	}
 
 	function inserir($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement inserir() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sql = "insert into veiculo (idVeiculo) values ('{$this->getIdVeiculo()} ',' {$this->getIdVeiculo()}')";
+		$conectar->query($sql);
+		echo "Registro gravado com o id " . $conectar->insert_id;
 	}
 
 	function listarUm($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement listarUm() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sqlbusca = "select * from veiculo where idCarro = $idVeiculo";
+		$retornoBd = $conectar->query($sqlbusca);
 	}
 
 	function listarTodos($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement listarTodos() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sqlbusca = "select * from veiculo";
+		$retornoBd = $conectar->query($sqlbusca);
+		$lista = array();
+		while ($temp = $retornoBd->fetch_array()) {
+			$lista[] = $temp;
+		}
+		return $lista;
 	}
 }
 

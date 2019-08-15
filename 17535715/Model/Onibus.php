@@ -6,9 +6,7 @@ class Onibus extends Veiculo {
 	private $idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo;
 
 	public function __construct($dadosOnibus, $dadosVeiculo) {
-		list($idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo) = $dadosOnibus;
-		$this->setIdOnibus($idOnibus);
-		$this->setIdVeiculo($idVeiculo);
+		list($qtdPassageiros, $quantidadeEixo) = $dadosOnibus;
 		$this->setQtdPassageiros($qtdPassageiros);
 		$this->setQuantidadeEixo($quantidadeEixo);
 		parent::__construct($dadosVeiculo);
@@ -47,15 +45,30 @@ class Onibus extends Veiculo {
 	}
 
 	function inserir($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement inserir() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sql = "insert into veiculo (idVeiculo) values ('{$this->getIdVeiculo()} ',' {$this->getIdVeiculo()}')";
+		$conectar->query($sql);
+		echo "Registro gravado com o id " . $conectar->insert_id;
 	}
 
 	function listarUm($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement listarUm() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sqlbusca = "select * from veiculo where idCarro = $idVeiculo";
+		$retornoBd = $conectar->query($sqlbusca);
 	}
 
 	function listarTodos($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) {
-		// TODO: Implement listarTodos() method.
+
+		$conectar = new mysqli("localhost", "root", "", "mapa");
+		$sqlbusca = "select * from veiculo";
+		$retornoBd = $conectar->query($sqlbusca);
+		$lista = array();
+		while ($temp = $retornoBd->fetch_array()) {
+			$lista[] = $temp;
+		}
+		return $lista;
 	}
 }
 
