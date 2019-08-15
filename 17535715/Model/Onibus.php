@@ -1,14 +1,14 @@
 <?php
 class Carro{
 
-    private $idCarro, $idVeiculo, $qtdPassageiros, $numPortas;
+    private $idOnibus, $idVeiculo, $qtdPassageiros, $quantidadeEixo;
 
-    public function setIdCarro($idCarro){
-        $this->idCarro=$idCarro;
+    public function setIdOnibus($idOnibus){
+        $this->ididOnibusCarro=$idOnibus;
     }
 
-    public function getIdCarro(){
-        return $this->idCarro;
+    public function getIdOnibus(){
+        return $this->idOnibus;
     }
 
     public function setIdVeiculo($idVeiculo){
@@ -27,12 +27,12 @@ class Carro{
         return $this->qtdPassageiros;
     }
 
-    public function setNumPortas($numPortas){
-        $this->numPortas=$numPortas;
+    public function setQuantidadeEixo($quantidadeEixo){
+        $this->quantidadeEixo=$quantidadeEixo;
     }
 
-    public function getNumPortas(){
-        return $this->numPortas;
+    public function getQuantidadeEixo(){
+        return $this->quantidadeEixo;
     }
 }
 ?>
