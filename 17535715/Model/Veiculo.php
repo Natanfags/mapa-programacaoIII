@@ -14,8 +14,7 @@ abstract class Veiculo {
 	protected $numRodas;
 
 	public function __construct($dadosVeiculo) {
-		list($idVeiculo, $placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) = $dadosVeiculo;
-		$this->setIdVeiculo($idVeiculo);
+		list($placa, $numChassi, $cor, $ano, $marca, $modelo, $pesoMaximo, $preco, $numRodas) = $dadosVeiculo;
 		$this->setPlaca($placa);
 		$this->setNumChassi($numChassi);
 		$this->setCor($cor);
